@@ -14,7 +14,7 @@ class EntityMakeCommand extends Command
      *
      * @var string
      */
-    protected $name = 'make:entity';
+    protected $name = 'make:entity {name}';
     /**
      * The console command description.
      *
