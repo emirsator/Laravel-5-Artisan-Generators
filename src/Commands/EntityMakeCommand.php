@@ -85,7 +85,7 @@ class EntityMakeCommand extends Command
         // $this->makeDirectory($path);
         // $this->files->put($path, $this->compileMigrationStub());
 
-        $this->generateFile('App/Http/Controllers/'.$name.'Controller.php', $this->compileStub('App/Http/Controllers/Controller', $name));
+        $this->generateFile('App\Http\Controllers\\'.$name.'Controller.php', $this->compileStub('App\Http\Controllers\Controller', $name));
 
         /**
          - App\Http\Controllers\<class_name>
