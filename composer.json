@@ -1,5 +1,5 @@
 {
-    "name": "EmirSator/Generators",
+    "name": "emirsator/laravel-generators",
     "description": "Laravel 5 Custom artisan generators",
     "keywords": ["laravel", "generators"],
     "license": "MIT",
