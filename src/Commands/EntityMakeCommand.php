@@ -106,7 +106,7 @@ class EntityMakeCommand extends Command
 
         // Remove "-" from the entity name
         $entityName = str_replace('_', '', $inputEntityName);
-        $entityNameLower = strlower(str_replace('_', '-', $inputEntityName));
+        $entityNameLower = strtolower(str_replace('_', '-', $inputEntityName));
         
         $stub = str_replace('{{entity}}', $entityName, $stub);
         $stub = str_replace('{{entity-lower}}', $entityNameLower, $stub);
