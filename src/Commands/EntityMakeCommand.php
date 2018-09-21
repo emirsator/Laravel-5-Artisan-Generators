@@ -86,7 +86,7 @@ class EntityMakeCommand extends Command
         // $this->files->put($path, $this->compileMigrationStub());
 
         $this->generateFile($name, 'App\Http\Controllers\\'.$name.'Controller.php', "Http\Controllers\Controller");
-        $this->generateFile($name, 'App\Http\Requests\\'.$name.'StoreRequest.php', "Http\Controllers\StoreRequest");
+        $this->generateFile($name, 'App\Http\Requests\\'.$name.'StoreRequest.php', "Http\Requests\StoreRequest");
         $this->generateFile($name, 'App\Repositories\Interfaces\\'.$name.'RepositoryInterface.php', "Repositories\Interfaces\RepositoryInterface");
         $this->generateFile($name, 'App\Repositories\\'.$name.'Repository.php', "Repositories\Repository");
         $this->generateFile($name, 'App\Services\Interfaces\\'.$name.'ServiceInterface.php', "Services\Interfaces\ServiceInterface");
