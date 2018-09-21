@@ -16,3 +16,4 @@ Resources\View\<class_name>\edit.blade.php
 Resources\View\<class_name>\index.blade.php
 Resources\Lang\<locale>\<class_name>
 
+More to come
