@@ -3,10 +3,10 @@
 namespace EmirSator\Generators\Commands;
 
 use Illuminate\Support\Str;
-use Illuminate\Console\GeneratorCommand;
+use Illuminate\Console\Command;
 use Symfony\Component\Console\Input\InputOption;
 
-class EntityMakeCommand extends GeneratorCommand
+class EntityMakeCommand extends Command
 {
     /**
      * The console command name.
