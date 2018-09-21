@@ -102,7 +102,7 @@ class EntityMakeCommand extends Command
 
     protected function compileStub($stubName, $inputEntityName)
     {
-        $stub = $this->files->get(__DIR__ . '/../stubs/' . $stubName .'.stub');
+        $stub = $this->files->get(__DIR__ . '\..\stubs\\' . $stubName .'.stub');
 
         // Remove "-" from the entity name
         $entityName = str_replace('_', '', $inputEntityName);
