@@ -1,0 +1,13 @@
+<?php
+namespace App\Services\Interfaces;
+ 
+interface {{entity}}ServiceInterface 
+{
+	public function get{{entity}}s();
+
+	public function store{{entity}}(${{entity}});
+
+	public function delete{{entity}}(${{entity}}Id);
+
+	public function get{{entity}}ById(${{entity}}Id);
+}

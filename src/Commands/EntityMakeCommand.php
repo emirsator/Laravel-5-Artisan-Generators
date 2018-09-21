@@ -85,7 +85,12 @@ class EntityMakeCommand extends Command
         // $this->makeDirectory($path);
         // $this->files->put($path, $this->compileMigrationStub());
 
-        $this->generateFile('App\Http\Controllers\\'.$name.'Controller.php', $this->compileStub('Http\Controllers\Controller', $name));
+        $this->generateFile($name, 'App\Http\Controllers\\'.$name.'Controller.php', "Http\Controllers\Controller");
+        $this->generateFile($name, 'App\Http\Requests\\'.$name.'StoreRequest.php', "Http\Controllers\StoreRequest");
+        $this->generateFile($name, 'App\Repositories\Interfaces\\'.$name.'RepositoryInterface.php', "Repositories\Interfaces\RepositoryInterface");
+        $this->generateFile($name, 'App\Repositories\\'.$name.'Repository.php', "Repositories\Repository");
+        $this->generateFile($name, 'App\Services\Interfaces\\'.$name.'ServiceInterface.php', "Services\Interfaces\ServiceInterface");
+        $this->generateFile($name, 'App\Services\\'.$name.'Service.php', "Services\Service");
 
         /**
          - App\Http\Controllers\<class_name>
@@ -100,21 +105,27 @@ class EntityMakeCommand extends Command
         $this->composer->dumpAutoloads();
     }
 
-    protected function compileStub($stubName, $inputEntityName)
+    protected function compileStub($stubName, $entityName)
     {
         $stub = $this->files->get(__DIR__ . '\..\stubs\\' . $stubName .'.stub');
-
-        // Remove "-" from the entity name
-        $entityName = str_replace('_', '', $inputEntityName);
-        $entityNameLower = strtolower(str_replace('_', '-', $inputEntityName));
-        
         $stub = str_replace('{{entity}}', $entityName, $stub);
-        $stub = str_replace('{{entity-lower}}', $entityNameLower, $stub);
+        //$stub = str_replace('{{entity-lower}}', $entitiyLowerName, $stub);
 
         return $stub;
     }
 
-    protected function generateFile($path, $content)
+    protected function generateFile($name, $stubName, $outputFile)
+    {
+        // Remove "-" from the entity name
+        //$entityName = str_replace('_', '', $name);
+        //$entityNameLower = strtolower(str_replace('_', '-', $name));
+
+        $stub = $this->compileStub($stubName, $name);
+
+        $this->storeFile($outputFile, $stub);
+    }
+
+    protected function storeFile($path, $content)
     {
         $this->files->put($path, $content);
     }

@@ -14,9 +14,9 @@ use Lang;
 
 class {{entity}}Controller extends Controller
 {
-    // GET /{{entity-lower}}
-    public function index({{entity}}ServiceInterface ${{entity-lower}}ServiceInterface)
+    // GET /{{entity}}
+    public function index({{entity}}ServiceInterface ${{entity}}ServiceInterface)
     {
-        return view('{{entity-lower}}.index');
+        return view('{{entity}}.index');
     }
 }

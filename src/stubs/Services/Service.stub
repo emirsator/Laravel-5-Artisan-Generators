@@ -1,0 +1,37 @@
+<?php
+
+namespace App\Services;
+
+use App\Services\Interfaces\{{entity}}ServiceInterface;
+
+use App\Repositories\Interfaces\{{entity}}RepositoryInterface;
+
+class {{entity}}Service implements {{entity}}ServiceInterface 
+{
+    protected ${{entity}}Repository;
+
+    public function __construct({{entity}}RepositoryInterface ${{entity}}Repository)
+	{
+		$this->{{entity}}Repository = ${{entity}}Repository;
+    }
+
+    public function get{{entity}}s()
+    {
+		$this->{{entity}}Repository->get{{entity}}s();
+    }
+
+	public function store{{entity}}(${{entity}})
+    {
+		$this->{{entity}}Repository->store{{entity}}(${{entity}});
+    }
+
+	public function delete{{entity}}(${{entity}}Id)
+    {
+		$this->{{entity}}Repository->delete{{entity}}(${{entity}}Id);
+    }
+
+	public function get{{entity}}ById(${{entity}}Id)
+    {
+		$this->{{entity}}Repository->get{{entity}}ById(${{entity}}Id);
+    }
+}
