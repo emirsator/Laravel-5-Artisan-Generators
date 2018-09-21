@@ -10,23 +10,18 @@ use Symfony\Component\Console\Input\InputOption;
 class EntityMakeCommand extends Command
 {
     /**
-     * The console command name.
+     * The console signature.
      *
      * @var string
      */
-    protected $name = 'make:entity {name}';
+    protected $signature = 'make:entity {name}';
+
     /**
      * The console command description.
      *
      * @var string
      */
     protected $description = 'Create a entity with all required files';
-    /**
-     * The type of class being generated.
-     *
-     * @var string
-     */
-    protected $type = 'Entity';
     
     /**
      * The filesystem instance.
