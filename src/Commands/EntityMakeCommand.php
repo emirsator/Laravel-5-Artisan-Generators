@@ -114,7 +114,7 @@ class EntityMakeCommand extends Command
         return $stub;
     }
 
-    protected function generateFile($name, $stubName, $outputFile)
+    protected function generateFile($name, $outputFile, $stubName)
     {
         // Remove "-" from the entity name
         //$entityName = str_replace('_', '', $name);
