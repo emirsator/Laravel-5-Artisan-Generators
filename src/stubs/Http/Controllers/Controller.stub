@@ -1,0 +1,22 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+
+use App\Helpers\GridColumn;
+use App\Helpers\GridHelper;
+use App\Http\Requests\Store{{entity}}Request;
+use App\Models\{{entity}};
+use App\Services\Interfaces\{{entity}}ServiceInterface;
+
+use Lang;
+
+class {{entity}}Controller extends Controller
+{
+    // GET /{{entity-lower}}
+    public function index({{entity}}ServiceInterface ${{entity-lower}}ServiceInterface)
+    {
+        return view('{{entity-lower}}.index');
+    }
+}

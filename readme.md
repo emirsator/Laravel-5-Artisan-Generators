@@ -17,3 +17,13 @@ For now, there is one command planned. The command should create:
 - Resources\Lang\<locale>\<class_name>
 
 More to come
+
+Step 2: Add the Service Provider
+You'll only want to use these generators for local development, so you don't want to update the production providers array in config/app.php. Instead, add the provider in app/Providers/AppServiceProvider.php, like so:
+
+public function register()
+{
+	if ($this->app->environment() == 'local') {
+		$this->app->register('EmirSator\Generators\GeneratorsServiceProvider');
+	}
+}

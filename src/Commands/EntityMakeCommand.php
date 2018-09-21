@@ -66,16 +66,16 @@ class EntityMakeCommand extends Command
      */
     public function fire()
     {
-        $this->makeRepository();
+        $name = $this->argument('name');
+
+        $this->makeEntity($name);
     }
 
     /**
-     * Generate an Eloquent model, if the user wishes.
+     * Generate an entity.
      */
-    protected function makeRepository()
+    protected function makeEntity($name)
     {
-        $name = $this->argument('name');
-
         $this->info($name);
 
         // if ($this->files->exists($path = $this->getPath($name))) {
@@ -84,7 +84,38 @@ class EntityMakeCommand extends Command
 
         // $this->makeDirectory($path);
         // $this->files->put($path, $this->compileMigrationStub());
-        // $this->info('Migration created successfully.');
-        // $this->composer->dumpAutoloads();
+
+        $this->generateFile('App\Http\Controllers\\'.$name.'Controller.php', $this->compileStub('App\Http\Controllers\Controller', $name));
+
+        /**
+         - App\Http\Controllers\<class_name>
+        - App\Http\Requests\<class_name>
+        - App\Repositories\Interfaces\<class_name>
+        - App\Repositories\<class_name>
+        - App\Services\Interfaces\<class_name>
+        - App\Services\<class_name>
+
+         */
+        
+        $this->composer->dumpAutoloads();
+    }
+
+    protected function compileStub($stubName, $inputEntityName)
+    {
+        $stub = $this->files->get(__DIR__ . '/../stubs/' . $stubName .'.stub');
+
+        // Remove "-" from the entity name
+        $entityName = str_replace('_', '', $inputEntityName);
+        $entityNameLower = strlower(str_replace('_', '-', $inputEntityName));
+        
+        $stub = str_replace('{{entity}}', $entityName, $stub);
+        $stub = str_replace('{{entity-lower}}', $entityNameLower, $stub);
+
+        return $stub;
+    }
+
+    protected function generateFile($path, $content)
+    {
+        $this->files->put($path, $content);
     }
 }
