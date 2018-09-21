@@ -1,0 +1,30 @@
+{
+    "name": "EmirSator/Generators",
+    "description": "Laravel 5 Custom artisan generators",
+    "keywords": ["laravel", "generators"],
+    "license": "MIT",
+    "authors": [
+      {
+        "name": "Emir Sator",
+        "email": "sator_e@hotmail.com"
+      }
+    ],
+    "require": {
+      "php": ">=5.4.0",
+      "illuminate/support": "~5.0"
+    },
+    "require-dev": {
+    },
+    "autoload": {
+      "psr-4": {
+        "EmirSator\\Generators\\": "src/"
+      }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "EmirSator\\Generators\\GeneratorsServiceProvider"
+            ]
+        }
+    }
+  }
