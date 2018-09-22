@@ -97,6 +97,15 @@ class EntityMakeCommand extends Command
         $this->generateFile($entityName, $entityPathName, $entitySmallName, 'App\Services\\'.$entityName.'Service.php', "Services\Service");
         $this->generateFile($entityName, $entityPathName, $entitySmallName, 'routes\web\\'.$entityPathName.'.php', "Routes\Route");
 
+        // Create views folder
+        $this->createDirectory('resources\views\\'.$entityPathName);
+
+        // Create views
+        $this->generateFile($entityName, $entityPathName, $entitySmallName, 'resources\views\\'.$entityPathName.'\\details.blade.php', "Views\Create");
+        $this->generateFile($entityName, $entityPathName, $entitySmallName, 'resources\views\\'.$entityPathName.'\\index.blade.php', "Views\Index");
+        $this->generateFile($entityName, $entityPathName, $entitySmallName, 'resources\views\\'.$entityPathName.'\\edit.blade.php', "Views\Edit");
+        $this->generateFile($entityName, $entityPathName, $entitySmallName, 'resources\views\\'.$entityPathName.'\\create.blade.php', "Views\Create");
+
         /**
          - App\Http\Controllers\<class_name>
         - App\Http\Requests\<class_name>
@@ -130,5 +139,10 @@ class EntityMakeCommand extends Command
     protected function storeFile($path, $content)
     {
         $this->files->put($path, $content);
+    }
+
+    protected function createDirectory($path)
+    {
+        $this->files->makeDirectory($path);
     }
 }
