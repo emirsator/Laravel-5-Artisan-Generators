@@ -5,9 +5,9 @@ interface {{entity}}ServiceInterface
 {
 	public function get{{entity}}s();
 
-	public function store{{entity}}(${{entity}});
+	public function store{{entity}}(${{entity-small}});
 
-	public function delete{{entity}}(${{entity}}Id);
+	public function delete{{entity}}(${{entity-small}}Id);
 
-	public function get{{entity}}ById(${{entity}}Id);
+	public function get{{entity}}ById(${{entity-small}}Id);
 }

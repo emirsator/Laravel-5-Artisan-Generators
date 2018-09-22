@@ -85,12 +85,16 @@ class EntityMakeCommand extends Command
         // $this->makeDirectory($path);
         // $this->files->put($path, $this->compileMigrationStub());
 
-        $this->generateFile($name, 'App\Http\Controllers\\'.$name.'Controller.php', "Http\Controllers\Controller");
-        $this->generateFile($name, 'App\Http\Requests\\'.$name.'StoreRequest.php', "Http\Requests\StoreRequest");
-        $this->generateFile($name, 'App\Repositories\Interfaces\\'.$name.'RepositoryInterface.php', "Repositories\Interfaces\RepositoryInterface");
-        $this->generateFile($name, 'App\Repositories\\'.$name.'Repository.php', "Repositories\Repository");
-        $this->generateFile($name, 'App\Services\Interfaces\\'.$name.'ServiceInterface.php', "Services\Interfaces\ServiceInterface");
-        $this->generateFile($name, 'App\Services\\'.$name.'Service.php', "Services\Service");
+        $entityName = str_replace('_', '', $name);
+        $entityPathName = strtolower(str_replace('_', '-', $name));
+        $entitySmallName = strtolower(substr($entityName, 0, 1)) + substr($entityName, 1);
+        
+        $this->generateFile($entityName, $entityPathName, $entitySmallName, 'App\Http\Controllers\\'.$name.'Controller.php', "Http\Controllers\Controller");
+        $this->generateFile($entityName, $entityPathName, $entitySmallName, 'App\Http\Requests\\'.$name.'StoreRequest.php', "Http\Requests\StoreRequest");
+        $this->generateFile($entityName, $entityPathName, $entitySmallName, 'App\Repositories\Interfaces\\'.$name.'RepositoryInterface.php', "Repositories\Interfaces\RepositoryInterface");
+        $this->generateFile($entityName, $entityPathName, $entitySmallName, 'App\Repositories\\'.$name.'Repository.php', "Repositories\Repository");
+        $this->generateFile($entityName, $entityPathName, $entitySmallName, 'App\Services\Interfaces\\'.$name.'ServiceInterface.php', "Services\Interfaces\ServiceInterface");
+        $this->generateFile($entityName, $entityPathName, $entitySmallName, 'App\Services\\'.$name.'Service.php', "Services\Service");
 
         /**
          - App\Http\Controllers\<class_name>
@@ -105,22 +109,19 @@ class EntityMakeCommand extends Command
         $this->composer->dumpAutoloads();
     }
 
-    protected function compileStub($stubName, $entityName)
+    protected function compileStub($stubName, $entityName, $entityPathName = "", $entitySmallName = "")
     {
         $stub = $this->files->get(__DIR__ . '\..\stubs\\' . $stubName .'.stub');
         $stub = str_replace('{{entity}}', $entityName, $stub);
-        //$stub = str_replace('{{entity-lower}}', $entitiyLowerName, $stub);
+        $stub = str_replace('{{entity-path}}', $entityPathName, $stub);
+        $stub = str_replace('{{entity-small}}', $entitySmallName, $stub);
 
         return $stub;
     }
 
-    protected function generateFile($name, $outputFile, $stubName)
+    protected function generateFile($entityName, $entityPathName, $entitySmallName, $outputFile, $stubName)
     {
-        // Remove "-" from the entity name
-        //$entityName = str_replace('_', '', $name);
-        //$entityNameLower = strtolower(str_replace('_', '-', $name));
-
-        $stub = $this->compileStub($stubName, $name);
+        $stub = $this->compileStub($stubName, $entityName, $entityPathName, $entitySmallName);
 
         $this->storeFile($outputFile, $stub);
     }
