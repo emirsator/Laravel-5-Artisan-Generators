@@ -87,14 +87,14 @@ class EntityMakeCommand extends Command
 
         $entityName = str_replace('_', '', $name);
         $entityPathName = strtolower(str_replace('_', '-', $name));
-        $entitySmallName = strtolower(substr($entityName, 0, 1)) + substr($entityName, 1);
+        $entitySmallName = strtolower(substr($entityName, 0, 1)) . substr($entityName, 1);
         
-        $this->generateFile($entityName, $entityPathName, $entitySmallName, 'App\Http\Controllers\\'.$name.'Controller.php', "Http\Controllers\Controller");
-        $this->generateFile($entityName, $entityPathName, $entitySmallName, 'App\Http\Requests\\'.$name.'StoreRequest.php', "Http\Requests\StoreRequest");
-        $this->generateFile($entityName, $entityPathName, $entitySmallName, 'App\Repositories\Interfaces\\'.$name.'RepositoryInterface.php', "Repositories\Interfaces\RepositoryInterface");
-        $this->generateFile($entityName, $entityPathName, $entitySmallName, 'App\Repositories\\'.$name.'Repository.php', "Repositories\Repository");
-        $this->generateFile($entityName, $entityPathName, $entitySmallName, 'App\Services\Interfaces\\'.$name.'ServiceInterface.php', "Services\Interfaces\ServiceInterface");
-        $this->generateFile($entityName, $entityPathName, $entitySmallName, 'App\Services\\'.$name.'Service.php', "Services\Service");
+        $this->generateFile($entityName, $entityPathName, $entitySmallName, 'App\Http\Controllers\\'.$entityName.'Controller.php', "Http\Controllers\Controller");
+        $this->generateFile($entityName, $entityPathName, $entitySmallName, 'App\Http\Requests\\'.$entityName.'StoreRequest.php', "Http\Requests\StoreRequest");
+        $this->generateFile($entityName, $entityPathName, $entitySmallName, 'App\Repositories\Interfaces\\'.$entityName.'RepositoryInterface.php', "Repositories\Interfaces\RepositoryInterface");
+        $this->generateFile($entityName, $entityPathName, $entitySmallName, 'App\Repositories\\'.$entityName.'Repository.php', "Repositories\Repository");
+        $this->generateFile($entityName, $entityPathName, $entitySmallName, 'App\Services\Interfaces\\'.$entityName.'ServiceInterface.php', "Services\Interfaces\ServiceInterface");
+        $this->generateFile($entityName, $entityPathName, $entitySmallName, 'App\Services\\'.$entityName.'Service.php', "Services\Service");
 
         /**
          - App\Http\Controllers\<class_name>

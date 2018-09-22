@@ -17,6 +17,6 @@ class {{entity}}Controller extends Controller
     // GET /{{entity-path}}
     public function index({{entity}}ServiceInterface ${{entity-small}}ServiceInterface)
     {
-        return view('{{entity}}.index');
+        return view('{{entity-path}}.index');
     }
 }
