@@ -1,9 +1,9 @@
 <?php
 
 return [
-    'details'   => 'Details',
     'create-{{entity-path}}'   => 'Create',
+    'details'   => 'Details',
     'edit-{{entity-path}}'   => 'Edit',
     'new-{{entity-path}}'   => 'New',
-    '{{entity-path}}.{{entity-path}}'   => '{{entity}}s',
+    '{{entity-path}}'   => '{{entity}}',
 ];
