@@ -105,17 +105,10 @@ class EntityMakeCommand extends Command
         $this->generateFile($entityName, $entityPathName, $entitySmallName, 'resources\views\\'.$entityPathName.'\\index.blade.php', "Views\Index");
         $this->generateFile($entityName, $entityPathName, $entitySmallName, 'resources\views\\'.$entityPathName.'\\edit.blade.php', "Views\Edit");
         $this->generateFile($entityName, $entityPathName, $entitySmallName, 'resources\views\\'.$entityPathName.'\\create.blade.php', "Views\Create");
-
-        /**
-         - App\Http\Controllers\<class_name>
-        - App\Http\Requests\<class_name>
-        - App\Repositories\Interfaces\<class_name>
-        - App\Repositories\<class_name>
-        - App\Services\Interfaces\<class_name>
-        - App\Services\<class_name>
-
-         */
         
+        // Create en Lang
+        $this->generateFile($entityName, $entityPathName, $entitySmallName, 'resources\lang\en\\'.$entityPathName.'.php', "Langs\Lang");
+
         $this->composer->dumpAutoloads();
     }
 
