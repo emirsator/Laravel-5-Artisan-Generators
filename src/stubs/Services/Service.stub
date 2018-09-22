@@ -11,7 +11,7 @@ class {{entity}}Service implements {{entity}}ServiceInterface
     protected ${{entity-small}}Repository;
 
     public function __construct({{entity}}RepositoryInterface ${{entity-small}}Repository)
-	{
+    {
 		$this->{{entity-small}}Repository = ${{entity-small}}Repository;
     }
 

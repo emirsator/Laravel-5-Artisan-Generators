@@ -1,0 +1,34 @@
+<?php
+
+namespace App\Repositories;
+
+use App\Models\{{entity}};
+use App\Repositories\Interfaces\{{entity}}RepositoryInterface;
+
+class {{entity}}Repository implements CarModelRepositoryInterface 
+{
+    public function get{{entity}}s()
+    {
+        return {{entity}}::all();
+    }
+
+	public function store{{entity}}(${{entity-small}})
+    {
+        return {{entity-small}}->save();
+    }
+
+	public function delete{{entity}}(${{entity-small}}Id)
+    {
+        ${{entity-small}} = {{entity}}::find(${{entity-small}}Id);
+
+        if (${{entity-small}} != null)
+        {
+            ${{entity-small}}->delete();
+        }
+    }
+
+	public function get{{entity}}ById(${{entity-small}}Id)
+    {
+        return {{entity}}::where('id', ${{entity-small}}Id)->first();
+    }
+}

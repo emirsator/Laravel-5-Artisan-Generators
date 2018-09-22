@@ -1,0 +1,13 @@
+<?php
+namespace App\Repositories\Interfaces;
+ 
+interface {{entity}}RepositoryInterface 
+{
+	public function get{{entity}}s();
+
+	public function store{{entity}}(${{entity-small}});
+
+	public function delete{{entity}}(${{entity-small}}Id);
+
+	public function get{{entity}}ById(${{entity-small}}Id);
+}
