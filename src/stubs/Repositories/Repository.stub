@@ -14,7 +14,7 @@ class {{entity}}Repository implements CarModelRepositoryInterface
 
 	public function store{{entity}}(${{entity-small}})
     {
-        return {{entity-small}}->save();
+        return ${{entity-small}}->save();
     }
 
 	public function delete{{entity}}(${{entity-small}}Id)

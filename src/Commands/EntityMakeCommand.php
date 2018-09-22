@@ -95,6 +95,7 @@ class EntityMakeCommand extends Command
         $this->generateFile($entityName, $entityPathName, $entitySmallName, 'App\Repositories\\'.$entityName.'Repository.php', "Repositories\Repository");
         $this->generateFile($entityName, $entityPathName, $entitySmallName, 'App\Services\Interfaces\\'.$entityName.'ServiceInterface.php', "Services\Interfaces\ServiceInterface");
         $this->generateFile($entityName, $entityPathName, $entitySmallName, 'App\Services\\'.$entityName.'Service.php', "Services\Service");
+        $this->generateFile($entityName, $entityPathName, $entitySmallName, 'routes\web\\'.$entityPathName.'.php', "Routes\Route");
 
         /**
          - App\Http\Controllers\<class_name>

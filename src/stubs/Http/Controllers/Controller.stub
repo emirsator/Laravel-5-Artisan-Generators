@@ -19,4 +19,77 @@ class {{entity}}Controller extends Controller
     {
         return view('{{entity-path}}.index');
     }
+    
+    // GET {{entity-path}}/create'
+    public function createview()
+    {
+        ${{entity-small}} = new {{entity}}();
+
+        return view('{{entity-path}}.create', ${{entit-small}});
+    }
+
+    // POST {{entity-path}}/create
+    public function create({{entity}}StoreRequest $request, 
+        {{entity}}ServiceInterface ${{entity-small}}ServiceInterface)
+    {
+        $new{{entity}} = new {{entity}}();
+
+        ${{entity-small}}ServiceInterface->store{{entity}}($new{{entity}});
+
+        return redirect()->route('{{entity-path}}');
+    }
+
+    // GET /{{entity-path}}/edit/{id}
+    public function editview($id, {{entity}}ServiceInterface ${{entity-small}}ServiceInterface)
+    {
+        ${{entity-small}} = ${{entity-small}}ServiceInterface->get{{entity}}ById($id);
+
+        if (${{entity-small}} == null)
+        {
+            abort(404);
+        }
+
+        return View('{{entity-path}}.edit', compact('{{entity-small}}'));
+    }
+
+    // PUT /{{entity-path}}
+    public function edit({{entity}}StoreRequest $request,
+        {{entity}}ServiceInterface ${{entity-small}}ServiceInterface)
+    {
+        ${{entity-small}} = ${{entity-small}}ServiceInterface->get{{entity}}ById($id);
+
+        if (${{entity-small}} == null)
+        {
+            abort(404);
+        }
+
+        ${{entity-small}}ServiceInterface->store{{entity}}($new{{entity}});
+        
+        return redirect()->route('{{entity-path}}.details', [${{entity-small}}->id]);
+    }
+
+    // DELETE /{{entity-path}}/{id}
+    public function delete($id, {{entity}}ServiceInterface ${{entity-small}}ServiceInterface)
+    {
+        ${{entity-small}}ServiceInterface->delete{{entity}}($id);
+
+        return response()->json(null, 200);
+    }
+
+    // GET /{{entity-path}/{id}
+    public function details($id, {{entity}}ServiceInterface ${{entity-small}}ServiceInterface)
+    {
+        ${{entity-small}} = ${{entity-small}}ServiceInterface->get{{entity}}ById($id);
+
+        if (${{entity-small}} == null)
+        {
+            abort(404);
+        }
+
+        $deleteUrl = url('{{entity-path}/' . $id);;
+        $indexUrl = url('{{entity-path}');
+
+        return View('{{entity-path}.details', compact('{{entity-small}}', 'deleteUrl', 'indexUrl'));
+    }
+
 }

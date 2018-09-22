@@ -1,0 +1,14 @@
+<?php
+
+Route::get('/{{entity-path}}', ['as' => '{{entity-path}}', 'uses' => '{{entity}}Controller@index']);
+
+Route::get('/{{entity-path}}/create', ['as' => '{{entity-path}}.createview', 'uses' => '{{entity}}Controller@createview']);
+
+Route::post('/{{entity-path}}/create', ['as' => '{{entity-path}}.create', 'uses' => '{{entity}}Controller@create']);
+
+Route::get('/{{entity-path}}/edit/{id}', ['as' => '{{entity-path}}.editview', 'uses' => '{{entity}}Controller@editview']);
+Route::put('/{{entity-path}}/edit/{id}', ['as' => '{{entity-path}}.edit', 'uses' => '{{entity}}Controller@edit']);
+
+Route::delete('/{{entity-path}}/{id}/', ['as' => '{{entity-path}}.delete', 'uses' => '{{entity}}Controller@delete']);
+
+Route::get('/{{entity-path}}/{id}', ['as' => '{{entity-path}}.details', 'uses' => '{{entity}}Controller@details']);
