@@ -136,6 +136,9 @@ class EntityMakeCommand extends Command
 
     protected function createDirectory($path)
     {
-        $this->files->makeDirectory($path);
+        if (!$this->files->exists($path))
+        {
+            $this->files->makeDirectory($path);
+        }
     }
 }
