@@ -3,7 +3,6 @@
 Route::get('/{{entity-path}}', ['as' => '{{entity-path}}', 'uses' => '{{entity}}Controller@index']);
 
 Route::get('/{{entity-path}}/create', ['as' => '{{entity-path}}.createview', 'uses' => '{{entity}}Controller@createview']);
-
 Route::post('/{{entity-path}}/create', ['as' => '{{entity-path}}.create', 'uses' => '{{entity}}Controller@create']);
 
 Route::get('/{{entity-path}}/edit/{id}', ['as' => '{{entity-path}}.editview', 'uses' => '{{entity}}Controller@editview']);

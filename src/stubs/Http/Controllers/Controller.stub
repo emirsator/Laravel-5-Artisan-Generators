@@ -25,7 +25,7 @@ class {{entity}}Controller extends Controller
     {
         ${{entity-small}} = new {{entity}}();
 
-        return view('{{entity-path}}.create', ${{entit-small}});
+        return view('{{entity-path}}.create', compact('{{entity-small}}'));
     }
 
     // POST {{entity-path}}/create

@@ -1,0 +1,40 @@
+@extends('layouts.app')
+
+@section('title')
+    @lang('{{entity-path}}.details')
+@endsection
+
+@section('content')
+<div class="row">
+
+    <div class="col-xs-12 col-sm-6 col-lg-4 padding-sides-10 margin-top-10">
+        <div class="container-box col-xs-12">
+            <h3 class="col-xs-12 padding-0 margin-top-0">@lang('label.basic-info')</h3>
+
+            <div class="col-xs-12 padding-0 margin-top-10">
+                <label class="col-xs-4 label-details">@lang('label.name')</label>
+                <span class="col-xs-12 padding-0">{{ ${{entity-small}}->name }}</span>
+            </div>
+
+            <div class="col-xs-6 padding-0">
+                    <remove-object
+                    removeurl="{{ $deleteUrl }}"
+                    indexurl="{{ $indexUrl }}"
+                    removelabel=@lang('label.delete')>
+                    </remove-object>
+                </div>
+
+            <div class="col-xs-6 padding-0">
+                <a class="btn btn-primary pull-right" href="{{ route('{{entity-path}}.editview', [${{entity-path}}->id]) }}">@lang('label.edit')</a>
+            </div>
+            
+        </div>
+    </div>
+
+    <div  class="col-xs-12 col-sm-6 col-lg-5 padding-sides-10 margin-top-10">
+        <div class="container-box col-xs-12">
+                
+        </div>
+    </div>
+</div>
+@endsection

@@ -1,0 +1,20 @@
+@extends('layouts.app')
+
+@section('title')
+    @lang('{{entity-path}}.{{entity-path}}')
+@endsection
+
+@section('content')
+
+<div class="row">
+    <div class="col-12 container-box margin-top-10">
+        <a href="{{ route('{{entity-path}}.createview') }}" class="btn btn-default">@lang('{{entity-path}}.new-{{entity-path}}')</a>
+    </div>
+    <div class="container-box margin-top-10">
+        <div class="col-12">
+            Implement grid here!
+        </div>
+    </div>
+</div>
+
+@endsection
