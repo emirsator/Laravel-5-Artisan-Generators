@@ -10,4 +10,6 @@ interface {{entity}}ServiceInterface
 	public function delete{{entity}}(${{entity-small}}Id);
 
 	public function get{{entity}}ById(${{entity-small}}Id);
+
+	public function get{{entity}}SelectQuery();
 }

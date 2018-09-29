@@ -31,4 +31,9 @@ class {{entity}}Repository implements {{entity}}RepositoryInterface
     {
         return {{entity}}::where('id', ${{entity-small}}Id)->first();
     }
+
+    public function get{{entity}}SelectQuery()
+    {
+        return {{entity}}::select('id');
+    }
 }
