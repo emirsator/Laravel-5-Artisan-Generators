@@ -25,7 +25,7 @@
                 </div>
 
             <div class="col-xs-6 padding-0">
-                <a class="btn btn-primary pull-right" href="{{ route('{{entity-path}}.editview', [${{entity-path}}->id]) }}">@lang('label.edit')</a>
+                <a class="btn btn-primary pull-right" href="{{ route('{{entity-path}}.editview', [${{entity-small}}->id]) }}">@lang('label.edit')</a>
             </div>
             
         </div>
