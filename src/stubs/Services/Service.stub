@@ -17,26 +17,26 @@ class {{entity}}Service implements {{entity}}ServiceInterface
 
   public function get{{entity}}s()
   {
-    $this->{{entity-small}}Repository->get{{entity}}s();
+    return $this->{{entity-small}}Repository->get{{entity}}s();
   }
 
   public function store{{entity}}(${{entity-small}})
   {
-    $this->{{entity-small}}Repository->store{{entity}}(${{entity-small}});
+    return $this->{{entity-small}}Repository->store{{entity}}(${{entity-small}});
   }
 
 	public function delete{{entity}}(${{entity-small}}Id)
   {
-		$this->{{entity-small}}Repository->delete{{entity}}(${{entity-small}}Id);
+		return $this->{{entity-small}}Repository->delete{{entity}}(${{entity-small}}Id);
   }
 
 	public function get{{entity}}ById(${{entity-small}}Id)
   {
-		$this->{{entity-small}}Repository->get{{entity}}ById(${{entity-small}}Id);
+		return $this->{{entity-small}}Repository->get{{entity}}ById(${{entity-small}}Id);
   }
 
   public function get{{entity}}SelectQuery()
   {
-    $this->{{entity-small}}Repository->get{{entity}}SelectQuery();
+    return $this->{{entity-small}}Repository->get{{entity}}SelectQuery();
   }
 }

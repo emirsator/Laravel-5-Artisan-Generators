@@ -29,7 +29,7 @@ class {{entity}}Controller extends Controller
     }
 
     // POST {{entity-path}}/create
-    public function create({{entity}}StoreRequest $request, 
+    public function create(Store{{entity}}Request $request, 
         {{entity}}ServiceInterface ${{entity-small}}ServiceInterface)
     {
         $new{{entity}} = new {{entity}}();
@@ -53,7 +53,7 @@ class {{entity}}Controller extends Controller
     }
 
     // PUT /{{entity-path}}
-    public function edit({{entity}}StoreRequest $request,
+    public function edit(Store{{entity}}Request $request,
         {{entity}}ServiceInterface ${{entity-small}}ServiceInterface)
     {
         ${{entity-small}} = ${{entity-small}}ServiceInterface->get{{entity}}ById($id);
@@ -63,7 +63,7 @@ class {{entity}}Controller extends Controller
             abort(404);
         }
 
-        ${{entity-small}}ServiceInterface->store{{entity}}($new{{entity}});
+        ${{entity-small}}ServiceInterface->store{{entity}}(${{entity-small}});
         
         return redirect()->route('{{entity-path}}.details', [${{entity-small}}->id]);
     }
@@ -76,7 +76,7 @@ class {{entity}}Controller extends Controller
         return response()->json(null, 200);
     }
 
-    // GET /{{entity-path}/{id}
+    // GET /{{entity-path}}/{id}
     public function details($id, {{entity}}ServiceInterface ${{entity-small}}ServiceInterface)
     {
         ${{entity-small}} = ${{entity-small}}ServiceInterface->get{{entity}}ById($id);
@@ -86,10 +86,10 @@ class {{entity}}Controller extends Controller
             abort(404);
         }
 
-        $deleteUrl = url('{{entity-path}/' . $id);;
-        $indexUrl = url('{{entity-path}');
+        $deleteUrl = url('{{entity-path}}/' . $id);;
+        $indexUrl = url('{{entity-path}}');
 
-        return View('{{entity-path}.details', compact('{{entity-small}}', 'deleteUrl', 'indexUrl'));
+        return View('{{entity-path}}.details', compact('{{entity-small}}', 'deleteUrl', 'indexUrl'));
     }
 
 }

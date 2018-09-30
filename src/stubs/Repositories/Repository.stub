@@ -24,7 +24,10 @@ class {{entity}}Repository implements {{entity}}RepositoryInterface
         if (${{entity-small}} != null)
         {
             ${{entity-small}}->delete();
+            return true;
         }
+
+        return false;
     }
 
 	public function get{{entity}}ById(${{entity-small}}Id)

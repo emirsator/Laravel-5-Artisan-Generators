@@ -101,7 +101,7 @@ class EntityMakeCommand extends Command
         $this->createDirectory('resources\views\\'.$entityPathName);
 
         // Create views
-        $this->generateFile($entityName, $entityPathName, $entitySmallName, 'resources\views\\'.$entityPathName.'\\details.blade.php', "Views\Create");
+        $this->generateFile($entityName, $entityPathName, $entitySmallName, 'resources\views\\'.$entityPathName.'\\details.blade.php', "Views\Details");
         $this->generateFile($entityName, $entityPathName, $entitySmallName, 'resources\views\\'.$entityPathName.'\\index.blade.php', "Views\Index");
         $this->generateFile($entityName, $entityPathName, $entitySmallName, 'resources\views\\'.$entityPathName.'\\edit.blade.php', "Views\Edit");
         $this->generateFile($entityName, $entityPathName, $entitySmallName, 'resources\views\\'.$entityPathName.'\\create.blade.php', "Views\Create");
