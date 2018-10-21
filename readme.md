@@ -2,7 +2,7 @@
 
 Is designed to be used as a helper library to improve development process.
 
-How to use:
+Usage:
 php artisan make:entity <Entity_Name>
 
 For now, there is one command planned. The command should create:
