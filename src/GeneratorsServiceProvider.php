@@ -1,6 +1,6 @@
 <?php
 
-namespace EmirSator\Generators;
+namespace emirsator\Generators;
 
 use Illuminate\Support\ServiceProvider;
 
@@ -30,7 +30,7 @@ class GeneratorsServiceProvider extends ServiceProvider
     private function registerEntityGenerator()
     {
         $this->app->singleton('command.emirsator.entity', function ($app) {
-            return $app['EmirSator\Generators\Commands\EntityMakeCommand'];
+            return $app['emirsator\Generators\Commands\EntityMakeCommand'];
         });
         $this->commands('command.emirsator.entity');
     }

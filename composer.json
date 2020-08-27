@@ -1,8 +1,9 @@
 {
     "name": "emirsator/laravel-generators",
-    "description": "Laravel 5 Custom artisan generators",
+    "description": "Laravel Custom artisan generators",
     "keywords": ["laravel", "generators"],
     "license": "MIT",
+    "version": "2.0.0",
     "authors": [
       {
         "name": "Emir Sator",
@@ -10,20 +11,20 @@
       }
     ],
     "require": {
-      "php": ">=5.4.0",
-      "illuminate/support": "~5.0"
+      "php": ">=7.2",
+      "illuminate/support": "^7.26.1"
     },
     "require-dev": {
     },
     "autoload": {
       "psr-4": {
-        "EmirSator\\Generators\\": "src/"
+        "emirsator\\Generators\\": "src/"
       }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "EmirSator\\Generators\\GeneratorsServiceProvider"
+                "emirsator\\Generators\\GeneratorsServiceProvider"
             ]
         }
     }

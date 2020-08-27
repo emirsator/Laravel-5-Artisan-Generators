@@ -1,11 +1,9 @@
 <?php
 
-namespace EmirSator\Generators\Commands;
+namespace emirsator\Generators\Commands;
 
-use Illuminate\Support\Str;
 use Illuminate\Console\Command;
 use Illuminate\Filesystem\Filesystem;
-use Symfony\Component\Console\Input\InputOption;
 
 class EntityMakeCommand extends Command
 {
@@ -89,12 +87,20 @@ class EntityMakeCommand extends Command
         $entityPathName = strtolower(str_replace('_', '-', $name));
         $entitySmallName = strtolower(substr($entityName, 0, 1)) . substr($entityName, 1);
         
-        $this->generateFile($entityName, $entityPathName, $entitySmallName, 'App\Http\Controllers\\'.$entityName.'Controller.php', "Http\Controllers\Controller");
-        $this->generateFile($entityName, $entityPathName, $entitySmallName, 'App\Http\Requests\\'.$entityName.'StoreRequest.php', "Http\Requests\StoreRequest");
-        $this->generateFile($entityName, $entityPathName, $entitySmallName, 'App\Repositories\Interfaces\\'.$entityName.'RepositoryInterface.php', "Repositories\Interfaces\RepositoryInterface");
-        $this->generateFile($entityName, $entityPathName, $entitySmallName, 'App\Repositories\\'.$entityName.'Repository.php', "Repositories\Repository");
-        $this->generateFile($entityName, $entityPathName, $entitySmallName, 'App\Services\Interfaces\\'.$entityName.'ServiceInterface.php', "Services\Interfaces\ServiceInterface");
-        $this->generateFile($entityName, $entityPathName, $entitySmallName, 'App\Services\\'.$entityName.'Service.php', "Services\Service");
+        $this->createDirectory('app\Http\Requests');
+        $this->createDirectory('app\Repositories');
+        $this->createDirectory('app\Repositories\Interfaces');
+        $this->createDirectory('app\Services');
+        $this->createDirectory('app\Services\Interfaces');
+        $this->createDirectory('routes\web-routes');
+        $this->createDirectory('resources\lang\en');
+
+        $this->generateFile($entityName, $entityPathName, $entitySmallName, 'app\Http\Controllers\\'.$entityName.'Controller.php', "Http\Controllers\Controller");
+        $this->generateFile($entityName, $entityPathName, $entitySmallName, 'app\Http\Requests\\'.$entityName.'StoreRequest.php', "Http\Requests\StoreRequest");
+        $this->generateFile($entityName, $entityPathName, $entitySmallName, 'app\Repositories\Interfaces\\'.$entityName.'RepositoryInterface.php', "Repositories\Interfaces\RepositoryInterface");
+        $this->generateFile($entityName, $entityPathName, $entitySmallName, 'app\Repositories\\'.$entityName.'Repository.php', "Repositories\Repository");
+        $this->generateFile($entityName, $entityPathName, $entitySmallName, 'app\Services\Interfaces\\'.$entityName.'ServiceInterface.php', "Services\Interfaces\ServiceInterface");
+        $this->generateFile($entityName, $entityPathName, $entitySmallName, 'app\Services\\'.$entityName.'Service.php', "Services\Service");
         $this->generateFile($entityName, $entityPathName, $entitySmallName, 'routes\web-routes\\'.$entityPathName.'.php', "Routes\Route");
 
         // Create views folder
