@@ -1,4 +1,4 @@
-# Laravel 5 Custom artisan generators
+# Laravel Custom artisan generators
 
 Is designed to be used as a helper library to improve development process.
 
